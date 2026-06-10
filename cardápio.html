@@ -13,65 +13,46 @@
       margin: 0;
     }
 
-    #cardapio {
+      #contato {
+      text-align: center;
+    }
+    
+    #localização {
       text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- CARDÁPIO -->
-  <section id="cardapio">
-    <h2>Cardápio</h2>
+   <!-- LOCALIZAÇÃO-->
+  <section id="localização">
+    <h2>Onde Estamos</h2>
 
-    <table border="1">
-      <tr>
-        <th>Categoria</th>
-        <th>Produto</th>
-        <th>Preço</th>
-      </tr>
-      <tr>
-        <td>Cafés</td>
-        <td>Café Expresso</td>
-        <td>R$5,00</td>
-      </tr>
-      <tr>
-        <td>Cafés</td>
-        <td>Cappuccino</td>
-        <td>R$7,00</td>
-      </tr>
-      <tr>
-        <td>Doces</td>
-        <td>Bolo de Cenoura</td>
-        <td>R$8,00</td>
-      </tr>
-      <tr>
-        <td>Doces</td>
-        <td>Brownie</td>
-        <td>R$6,50</td>
-      </tr>
-      <tr>
-        <td>Salgados</td>
-        <td>Pão de Queijo</td>
-        <td>R$4,50</td>
-      </tr>
-      <tr>
-        <td>Salgados</td>
-        <td>Misto Quente</td>
-        <td>R$7,00</td>
-      </tr>
-      <tr>
-        <td>Bebidas</td>
-        <td>Suco Natural</td>
-        <td>R$6,00</td>
-      </tr>
-      <tr>
-        <td>Bebidas</td>
-        <td>Chocolate Quente</td>
-        <td>R$7,00</td>
-      </tr>
-    </table>
-  </section>
+    <iframe
+        src="https://maps.google.com/maps?q=Campinas%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Contato</h2>
+
+  <form>
+    Nome: <input type="text"><br><br>
+    Email: <input type="email"><br><br>
+    Idade: <input type="number"><br><br>
+    Senha: <input type="password"><br><br>
+    Data: <input type="date"><br><br>
+
+    <input type="submit" value="Enviar">
+  </form>
+</section>
+
 
 </body>
 </html>
