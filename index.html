@@ -2,51 +2,194 @@
 <html>
 <head>
   <title>Ponto do Café</title>
-
-  <!-- favicon -->
-  <link rel="favicon"  type="ico" href="favicon.ico">
-
+  <link rel="favicon" type="ico" href="favicon.ico">
+ 
   <style>
+ 
+    /* ===== RESET E BASE =====
+       Define o estilo padrão de toda a página.
+       font-family: define a fonte usada no site.
+       margin: 0 remove os espaços padrão do navegador ao redor da página. */
     body {
       text-align: center;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5ede0; /* bege claro — cor de fundo geral da página */
+      color: #3b1f0e;            /* marrom escuro para o texto principal */
     }
-
+ 
+    /* ===== MENU DE NAVEGAÇÃO =====
+       O <nav> é a barra de navegação no topo.
+       background-color: deixa o fundo marrom escuro.
+       padding: adiciona espaço interno (por dentro do elemento).
+       position: sticky faz o menu "grudar" no topo ao rolar a página. */
+    nav {
+      background-color: #4b2e1a; /* marrom escuro */
+      padding: 14px;
+      position: sticky;
+      top: 0;                    /* gruda no topo */
+      z-index: 100;              /* fica na frente de outros elementos */
+    }
+ 
+    /* ===== LINKS DO MENU =====
+       Estiliza os links <a> que ficam dentro do <nav>.
+       color: branco para contrastar com o fundo marrom.
+       text-decoration: none remove o sublinhado padrão dos links. */
+    nav a {
+      color: #fff8f0;            /* branco quente */
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+ 
+    /* ===== EFEITO HOVER NOS LINKS =====
+       :hover é aplicado quando o usuário passa o mouse em cima.
+       Aqui mudamos a cor do link para um bege dourado. */
+    nav a:hover {
+      color: #d4a96a;            /* bege dourado no hover */
+    }
+ 
+    /* ===== SEÇÕES DO CONTEÚDO =====
+       Cada bloco de conteúdo (Início, Sobre, Cardápio...) é uma <section>.
+       width: 65% faz ela ocupar 65% da largura da tela.
+       margin: auto centraliza horizontalmente.
+       background-color: branco para contrastar com o fundo bege da página.
+       border-radius: arredonda os cantos do bloco.
+       box-shadow: adiciona uma sombra leve para dar profundidade. */
     section {
-      width: 60%;
+      width: 65%;
       margin: 30px auto;
+      background-color: #fffaf5; /* branco levemente bege */
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12); /* sombra marrom suave */
     }
-
+ 
+    /* ===== TÍTULO PRINCIPAL (h1) =====
+       O h1 é o título maior, usado na seção de início.
+       color: marrom escuro para combinar com o tema. */
+    h1 {
+      color: #4b2e1a;            /* marrom escuro */
+      font-size: 28px;
+    }
+ 
+    /* ===== SUBTÍTULOS (h2) =====
+       Os h2 são os títulos de cada seção (Sobre, Cardápio etc.).
+       border-bottom: adiciona uma linha decorativa embaixo do título.
+       padding-bottom: espaço entre o texto e a linha. */
+    h2 {
+      color: #6b3a1f;            /* marrom médio */
+      border-bottom: 2px solid #d4a96a; /* linha bege dourada embaixo */
+      padding-bottom: 8px;
+      display: inline-block;     /* faz a linha ter o tamanho do texto */
+    }
+ 
+    /* ===== IMAGEM =====
+       max-width: 100% faz a imagem nunca ultrapassar o tamanho da seção.
+       border-radius: arredonda os cantos da imagem. */
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 14px;
+    }
+ 
+    /* ===== LISTAS (ul/li) =====
+       list-style: none remove os marcadores padrão das listas.
+       padding: 0 remove o recuo padrão. */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+ 
+    /* Cada item da lista recebe um estilo próprio.
+       border-left: adiciona uma barra colorida à esquerda de cada item.
+       text-align: left alinha o texto à esquerda dentro do item. */
+    li {
+      background-color: #f5ede0;  /* fundo bege claro */
+      margin: 6px auto;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border-left: 4px solid #8b4513; /* barra marrom à esquerda */
+      max-width: 360px;
+      text-align: left;
+    }
+ 
+    /* ===== TABELA DO CARDÁPIO =====
+       width: 100% faz a tabela ocupar toda a largura da seção.
+       border-collapse: collapse remove os espaços duplos entre as bordas. */
     table {
       margin: auto;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
     }
+ 
+    /* ===== CÉLULAS DA TABELA =====
+       th = cabeçalho | td = célula normal
+       padding: espaço interno em cada célula.
+       border: borda em volta de cada célula. */
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid #c9a07a; /* bordas bege dourado */
+      text-align: center;
+    }
+ 
+    /* ===== CABEÇALHO DA TABELA =====
+       O <th> (primeira linha da tabela) tem fundo marrom escuro e texto claro. */
+    th {
+      background-color: #4b2e1a; /* marrom escuro */
+      color: #fff8f0;             /* texto branco quente */
+    }
+ 
+    /* ===== LINHAS ALTERNADAS NA TABELA =====
+       :nth-child(even) seleciona as linhas pares (2ª, 4ª, 6ª...).
+       Isso cria o efeito "zebrado" para facilitar a leitura. */
+    tr:nth-child(even) {
+      background-color: #f5ede0; /* bege claro nas linhas pares */
+    }
+ 
+    /* ===== HOVER NAS LINHAS DA TABELA =====
+       Quando o usuário passa o mouse em uma linha, ela muda de cor. */
+    tr:hover {
+      background-color: #e8d5b7; /* bege mais escuro no hover */
+    }
+ 
+    /* ===== RODAPÉ =====
+       O <footer> fica no final da página.
+       background-color: marrom escuro igual ao menu, criando consistência visual. */
+    footer {
+      background-color: #4b2e1a; /* marrom escuro */
+      color: #fff8f0;             /* texto branco quente */
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+ 
   </style>
 </head>
-
 <body>
-
+ 
 <!-- MENU -->
 <nav>
   <a href="#inicio">Início</a> |
   <a href="Contato.html">Contato</a> |
   <a href="#cardapio">Cardápio</a>
 </nav>
-
+ 
 <!-- INÍCIO -->
 <section id="inicio">
   <h1>Venha conhecer o Ponto do Café ☕</h1>
-
   <img src="ambiente-charmoso-e-aconchegan.jpg" width="600">
-
   <p>Temos esse espaço maravilhoso para você poder desfrutar.</p>
 </section>
-
+ 
 <!-- SOBRE -->
 <section>
   <h2>Sobre o café</h2>
   <p>Um ambiente aconchegante, perfeito para relaxar, estudar ou conversar com amigos enquanto aprecia um café de qualidade.</p>
 </section>
-
+ 
 <!-- DIFERENCIAIS -->
 <section>
   <h2>Nossos diferenciais</h2>
@@ -56,8 +199,7 @@
     <li>Atendimento excelente</li>
   </ul>
 </section>
-
-
+ 
 <!-- HORÁRIO -->
 <section>
   <h2>Horário de funcionamento</h2>
@@ -67,60 +209,64 @@
     <li>Domingo: Fechado</li>
   </ul>
 </section>
-
- <!-- CARDÁPIO -->
-  <section id="cardapio">
-    <h2>Cardápio</h2>
-
-    <table border="1">
-      <tr>
-        <th>Categoria</th>
-        <th>Produto</th>
-        <th>Preço</th>
-      </tr>
-      <tr>
-        <td>Cafés</td>
-        <td>Café Expresso</td>
-        <td>R$5,00</td>
-      </tr>
-      <tr>
-        <td>Cafés</td>
-        <td>Cappuccino</td>
-        <td>R$7,00</td>
-      </tr>
-      <tr>
-        <td>Doces</td>
-        <td>Bolo de Cenoura</td>
-        <td>R$8,00</td>
-      </tr>
-      <tr>
-        <td>Doces</td>
-        <td>Brownie</td>
-        <td>R$6,50</td>
-      </tr>
-      <tr>
-        <td>Salgados</td>
-        <td>Pão de Queijo</td>
-        <td>R$4,50</td>
-      </tr>
-      <tr>
-        <td>Salgados</td>
-        <td>Misto Quente</td>
-        <td>R$7,00</td>
-      </tr>
-      <tr>
-        <td>Bebidas</td>
-        <td>Suco Natural</td>
-        <td>R$6,00</td>
-      </tr>
-      <tr>
-        <td>Bebidas</td>
-        <td>Chocolate Quente</td>
-        <td>R$7,00</td>
-      </tr>
-    </table>
-  </section>
+ 
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <h2>Cardápio</h2>
+  <table>
+    <tr>
+      <th>Categoria</th>
+      <th>Produto</th>
+      <th>Preço</th>
+    </tr>
+    <tr>
+      <td>Cafés</td>
+      <td>Café Expresso</td>
+      <td>R$5,00</td>
+    </tr>
+    <tr>
+      <td>Cafés</td>
+      <td>Cappuccino</td>
+      <td>R$7,00</td>
+    </tr>
+    <tr>
+      <td>Doces</td>
+      <td>Bolo de Cenoura</td>
+      <td>R$8,00</td>
+    </tr>
+    <tr>
+      <td>Doces</td>
+      <td>Brownie</td>
+      <td>R$6,50</td>
+    </tr>
+    <tr>
+      <td>Salgados</td>
+      <td>Pão de Queijo</td>
+      <td>R$4,50</td>
+    </tr>
+    <tr>
+      <td>Salgados</td>
+      <td>Misto Quente</td>
+      <td>R$7,00</td>
+    </tr>
+    <tr>
+      <td>Bebidas</td>
+      <td>Suco Natural</td>
+      <td>R$6,00</td>
+    </tr>
+    <tr>
+      <td>Bebidas</td>
+      <td>Chocolate Quente</td>
+      <td>R$7,00</td>
+    </tr>
+  </table>
+</section>
  
 <!-- RODAPÉ -->
 <footer>
   <p>© 2026 Ponto do Café</p>
+</footer>
+ 
+</body>
+</html>
+ 
