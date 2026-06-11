@@ -1,58 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  
-  <link rel="icon"  type="ico" href="favicon.ico">
-  
+  <title>Contato - Ponto do Café</title>
+  <link rel="icon" type="ico" href="favicon.ico">
+ 
   <style>
+ 
+    /* ===== BASE DA PÁGINA =====
+       Mesmas cores da página principal para manter a identidade visual.
+       background-color: bege claro como fundo geral. */
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
       margin: 0;
+      background-color: #f5ede0; /* bege claro — igual à página principal */
+      color: #3b1f0e;            /* marrom escuro para o texto */
     }
-
-      #contato {
+ 
+    /* ===== MENU DE NAVEGAÇÃO =====
+       Copiado da página principal para manter consistência.
+       position: sticky faz o menu grudar no topo ao rolar. */
+    nav {
+      background-color: #4b2e1a; /* marrom escuro */
+      padding: 14px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    
+ 
+    /* ===== LINKS DO MENU ===== */
+    nav a {
+      color: #fff8f0;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+ 
+    /* Muda a cor do link ao passar o mouse */
+    nav a:hover {
+      color: #d4a96a; /* bege dourado */
+    }
+ 
+    /* ===== LAYOUT DAS SEÇÕES =====
+       As duas seções ficam lado a lado usando flexbox.
+       flex-wrap: wrap permite que elas empilhem em telas menores. */
+    .pagina {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;         /* espaço entre as seções */
+      padding: 40px 20px;
+    }
+ 
+    /* ===== SEÇÕES =====
+       Mesmo estilo da página principal: fundo branco, bordas arredondadas e sombra. */
+    section {
+      background-color: #fffaf5; /* branco levemente bege */
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12); /* sombra marrom suave */
+    }
+ 
+    /* ===== SUBTÍTULOS (h2) =====
+       Igual à página principal: linha decorativa embaixo do título. */
+    h2 {
+      color: #6b3a1f;                      /* marrom médio */
+      border-bottom: 2px solid #d4a96a;    /* linha bege dourada */
+      padding-bottom: 8px;
+      display: inline-block;
+      margin-top: 0;
+    }
+ 
+    /* ===== MAPA =====
+       border-radius arredonda os cantos do iframe do mapa. */
+    iframe {
+      border-radius: 10px;
+      display: block;    /* remove espaço extra embaixo do iframe */
+    }
+ 
+    /* ===== SEÇÃO DE CONTATO =====
+       text-align: center centraliza o conteúdo do formulário. */
+    #contato {
+      text-align: center;
+      min-width: 280px;
+    }
+ 
+    /* ===== TABELA DO FORMULÁRIO =====
+       Usamos uma tabela invisível para alinhar os rótulos e campos.
+       Isso deixa o formulário mais organizado e fácil de ler. */
+    .form-tabela {
+      margin: 0 auto;
+      text-align: left;
+      border-collapse: collapse;
+    }
+ 
+    /* Cada linha da tabela tem um espaçamento vertical */
+    .form-tabela tr {
+      margin-bottom: 10px;
+    }
+ 
+    /* Célula do rótulo (ex: "Nome:", "Email:") */
+    .form-tabela td:first-child {
+      padding: 8px 12px 8px 0;
+      font-weight: bold;
+      color: #4b2e1a;   /* marrom escuro */
+      white-space: nowrap;
+    }
+ 
+    /* ===== CAMPOS DE INPUT =====
+       Estilo dos campos de texto, email, senha etc.
+       border: borda bege dourada combinando com o tema.
+       border-radius: arredonda os cantos do campo.
+       outline: none remove o contorno azul padrão do navegador. */
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="date"] {
+      padding: 8px 12px;
+      border: 1px solid #c9a07a;  /* borda bege dourada */
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fff8f0;  /* fundo branco quente */
+      color: #3b1f0e;
+      width: 200px;
+      outline: none;
+    }
+ 
+    /* Efeito ao clicar no campo: borda marrom mais escura */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="password"]:focus,
+    input[type="date"]:focus {
+      border-color: #8b4513; /* marrom mais escuro no foco */
+    }
+ 
+    /* ===== BOTÃO ENVIAR =====
+       background-color: marrom escuro igual ao menu e rodapé.
+       cursor: pointer mostra a "mãozinha" ao passar o mouse. */
+    input[type="submit"] {
+      margin-top: 16px;
+      padding: 10px 28px;
+      background-color: #4b2e1a; /* marrom escuro */
+      color: #fff8f0;             /* texto branco quente */
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+ 
+    /* Muda a cor do botão ao passar o mouse */
+    input[type="submit"]:hover {
+      background-color: #6b3a1f; /* marrom médio no hover */
+    }
+ 
+    /* ===== RODAPÉ =====
+       Igual ao da página principal para manter consistência. */
+    footer {
+      background-color: #4b2e1a;
+      color: #fff8f0;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+ 
   </style>
 </head>
 <body>
-
-   <!-- LOCALIZAÇÃO-->
+ 
+<!-- MENU -->
+<nav>
+  <a href="index.html">Início</a> |
+  <a href="Contato.html">Contato</a> |
+  <a href="index.html#cardapio">Cardápio</a>
+</nav>
+ 
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="pagina">
+ 
+  <!-- LOCALIZAÇÃO -->
   <section id="localização">
     <h2>Onde Estamos</h2>
-
     <iframe
-        src="https://maps.google.com/maps?q=Campinas%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        width="600"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
+      src="https://maps.google.com/maps?q=Campinas%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      width="500"
+      height="380"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
     </iframe>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <h2>Contato</h2>
-
-  <form>
-    Nome: <input type="text"><br><br>
-    Email: <input type="email"><br><br>
-    Idade: <input type="number"><br><br>
-    Senha: <input type="password"><br><br>
-    Data: <input type="date"><br><br>
-
-    <input type="submit" value="Enviar">
-  </form>
-</section>
-
-
+  </section>
+ 
+  <!-- CONTATO -->
+  <section id="contato">
+    <h2>Contato</h2>
+    <form>
+      <table class="form-tabela">
+        <tr>
+          <td>Nome:</td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email"></td>
+        </tr>
+        <tr>
+          <td>Idade:</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>Senha:</td>
+          <td><input type="password"></td>
+        </tr>
+        <tr>
+          <td>Data:</td>
+          <td><input type="date"></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <input type="submit" value="Enviar">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+ 
+</div>
+ 
+<!-- RODAPÉ -->
+<footer>
+  <p>© 2026 Ponto do Café</p>
+</footer>
+ 
 </body>
 </html>
+ 
