@@ -3,169 +3,288 @@
 <head>
   <title>Ponto do Café</title>
   <link rel="favicon" type="ico" href="favicon.ico">
- 
+
   <style>
- 
-    /* ===== RESET E BASE =====
-       Define o estilo padrão de toda a página.
-       font-family: define a fonte usada no site.
-       margin: 0 remove os espaços padrão do navegador ao redor da página. */
+
+    /* =====================================================
+       BODY = CORPO PRINCIPAL DA PÁGINA
+
+       O body representa toda a área visível do site.
+
+       Aqui definimos:
+       - Fonte padrão
+       - Cor de fundo
+       - Cor padrão dos textos
+       - Alinhamento inicial do conteúdo
+       - Remoção das margens automáticas do navegador
+
+       Essas configurações servem de base para todo o site.
+    ===================================================== */
     body {
       text-align: center;
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #f5ede0; /* bege claro — cor de fundo geral da página */
-      color: #3b1f0e;            /* marrom escuro para o texto principal */
+      background-color: #f5ede0;
+      color: #3b1f0e;
     }
- 
-    /* ===== MENU DE NAVEGAÇÃO =====
-       O <nav> é a barra de navegação no topo.
-       background-color: deixa o fundo marrom escuro.
-       padding: adiciona espaço interno (por dentro do elemento).
-       position: sticky faz o menu "grudar" no topo ao rolar a página. */
+
+    /* =====================================================
+       NAV = MENU DE NAVEGAÇÃO
+
+       O nav contém os principais links do site.
+
+       background-color:
+       Define um fundo marrom escuro para combinar com o
+       tema de cafeteria.
+
+       padding:
+       Adiciona espaço interno para deixar o menu mais bonito.
+
+       position: sticky:
+       Faz o menu acompanhar a rolagem da página.
+
+       top: 0:
+       Mantém o menu preso ao topo.
+
+       z-index:
+       Garante que o menu fique acima dos outros elementos.
+    ===================================================== */
     nav {
-      background-color: #4b2e1a; /* marrom escuro */
+      background-color: #4b2e1a;
       padding: 14px;
       position: sticky;
-      top: 0;                    /* gruda no topo */
-      z-index: 100;              /* fica na frente de outros elementos */
+      top: 0;
+      z-index: 100;
     }
- 
-    /* ===== LINKS DO MENU =====
-       Estiliza os links <a> que ficam dentro do <nav>.
-       color: branco para contrastar com o fundo marrom.
-       text-decoration: none remove o sublinhado padrão dos links. */
+
+    /* =====================================================
+       LINKS DO MENU
+
+       Estiliza todos os links presentes dentro do nav.
+
+       text-decoration: none:
+       Remove o sublinhado padrão.
+
+       margin:
+       Cria espaçamento entre os links.
+
+       font-weight:
+       Deixa os links em negrito.
+
+       font-size:
+       Define um tamanho confortável para leitura.
+    ===================================================== */
     nav a {
-      color: #fff8f0;            /* branco quente */
+      color: #fff8f0;
       text-decoration: none;
       margin: 0 12px;
       font-weight: bold;
       font-size: 15px;
     }
- 
-    /* ===== EFEITO HOVER NOS LINKS =====
-       :hover é aplicado quando o usuário passa o mouse em cima.
-       Aqui mudamos a cor do link para um bege dourado. */
+
+    /* =====================================================
+       HOVER DOS LINKS
+
+       Quando o usuário passa o mouse sobre o link,
+       sua cor muda para indicar interatividade.
+    ===================================================== */
     nav a:hover {
-      color: #d4a96a;            /* bege dourado no hover */
+      color: #d4a96a;
     }
- 
-    /* ===== SEÇÕES DO CONTEÚDO =====
-       Cada bloco de conteúdo (Início, Sobre, Cardápio...) é uma <section>.
-       width: 65% faz ela ocupar 65% da largura da tela.
-       margin: auto centraliza horizontalmente.
-       background-color: branco para contrastar com o fundo bege da página.
-       border-radius: arredonda os cantos do bloco.
-       box-shadow: adiciona uma sombra leve para dar profundidade. */
+
+    /* =====================================================
+       SECTION = BLOCOS DE CONTEÚDO
+
+       Cada section funciona como um cartão.
+
+       width:
+       Limita a largura para melhorar a leitura.
+
+       margin:
+       Centraliza horizontalmente.
+
+       background-color:
+       Destaca o conteúdo em relação ao fundo.
+
+       border-radius:
+       Arredonda os cantos.
+
+       padding:
+       Cria espaço interno.
+
+       box-shadow:
+       Adiciona profundidade visual.
+    ===================================================== */
     section {
       width: 65%;
       margin: 30px auto;
-      background-color: #fffaf5; /* branco levemente bege */
+      background-color: #fffaf5;
       border-radius: 12px;
       padding: 30px;
-      box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12); /* sombra marrom suave */
+      box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12);
     }
- 
-    /* ===== TÍTULO PRINCIPAL (h1) =====
-       O h1 é o título maior, usado na seção de início.
-       color: marrom escuro para combinar com o tema. */
+
+    /* =====================================================
+       H1 = TÍTULO PRINCIPAL
+
+       É o título mais importante da página.
+       Recebe tamanho maior para chamar atenção.
+    ===================================================== */
     h1 {
-      color: #4b2e1a;            /* marrom escuro */
+      color: #4b2e1a;
       font-size: 28px;
     }
- 
-    /* ===== SUBTÍTULOS (h2) =====
-       Os h2 são os títulos de cada seção (Sobre, Cardápio etc.).
-       border-bottom: adiciona uma linha decorativa embaixo do título.
-       padding-bottom: espaço entre o texto e a linha. */
+
+    /* =====================================================
+       H2 = TÍTULOS DAS SEÇÕES
+
+       border-bottom:
+       Cria uma linha decorativa abaixo do texto.
+
+       padding-bottom:
+       Cria espaço entre o texto e a linha.
+
+       display: inline-block:
+       Faz a linha acompanhar apenas o tamanho do texto.
+    ===================================================== */
     h2 {
-      color: #6b3a1f;            /* marrom médio */
-      border-bottom: 2px solid #d4a96a; /* linha bege dourada embaixo */
+      color: #6b3a1f;
+      border-bottom: 2px solid #d4a96a;
       padding-bottom: 8px;
-      display: inline-block;     /* faz a linha ter o tamanho do texto */
+      display: inline-block;
     }
- 
-    /* ===== IMAGEM =====
-       max-width: 100% faz a imagem nunca ultrapassar o tamanho da seção.
-       border-radius: arredonda os cantos da imagem. */
+
+    /* =====================================================
+       IMAGENS
+
+       max-width:
+       Impede que a imagem ultrapasse o espaço disponível.
+
+       border-radius:
+       Mantém o padrão visual arredondado.
+
+       margin-top:
+       Adiciona espaço acima da imagem.
+    ===================================================== */
     img {
       max-width: 100%;
       border-radius: 10px;
       margin-top: 14px;
     }
- 
-    /* ===== LISTAS (ul/li) =====
-       list-style: none remove os marcadores padrão das listas.
-       padding: 0 remove o recuo padrão. */
+
+    /* =====================================================
+       LISTAS UL
+
+       list-style:
+       Remove as bolinhas padrão.
+
+       padding:
+       Remove recuos automáticos.
+    ===================================================== */
     ul {
       list-style: none;
       padding: 0;
     }
- 
-    /* Cada item da lista recebe um estilo próprio.
-       border-left: adiciona uma barra colorida à esquerda de cada item.
-       text-align: left alinha o texto à esquerda dentro do item. */
+
+    /* =====================================================
+       ITENS DA LISTA
+
+       Cada item recebe aparência de cartão.
+
+       border-left:
+       Barra decorativa para destacar informações.
+    ===================================================== */
     li {
-      background-color: #f5ede0;  /* fundo bege claro */
+      background-color: #f5ede0;
       margin: 6px auto;
       padding: 10px 16px;
       border-radius: 8px;
-      border-left: 4px solid #8b4513; /* barra marrom à esquerda */
+      border-left: 4px solid #8b4513;
       max-width: 360px;
       text-align: left;
     }
- 
-    /* ===== TABELA DO CARDÁPIO =====
-       width: 100% faz a tabela ocupar toda a largura da seção.
-       border-collapse: collapse remove os espaços duplos entre as bordas. */
+
+    /* =====================================================
+       TABELA DO CARDÁPIO
+
+       width:
+       Faz a tabela ocupar toda a section.
+
+       border-collapse:
+       Remove espaços duplicados entre bordas.
+    ===================================================== */
     table {
       margin: auto;
       width: 100%;
       border-collapse: collapse;
       font-size: 15px;
     }
- 
-    /* ===== CÉLULAS DA TABELA =====
-       th = cabeçalho | td = célula normal
-       padding: espaço interno em cada célula.
-       border: borda em volta de cada célula. */
+
+    /* =====================================================
+       TH E TD
+
+       Define aparência das células da tabela.
+
+       padding:
+       Espaço interno.
+
+       border:
+       Cria divisão visual entre informações.
+
+       text-align:
+       Centraliza os dados.
+    ===================================================== */
     th, td {
       padding: 10px 14px;
-      border: 1px solid #c9a07a; /* bordas bege dourado */
+      border: 1px solid #c9a07a;
       text-align: center;
     }
- 
-    /* ===== CABEÇALHO DA TABELA =====
-       O <th> (primeira linha da tabela) tem fundo marrom escuro e texto claro. */
+
+    /* =====================================================
+       TH = CABEÇALHO DA TABELA
+
+       Recebe cor diferente para destacar os títulos
+       das colunas.
+    ===================================================== */
     th {
-      background-color: #4b2e1a; /* marrom escuro */
-      color: #fff8f0;             /* texto branco quente */
+      background-color: #4b2e1a;
+      color: #fff8f0;
     }
- 
-    /* ===== LINHAS ALTERNADAS NA TABELA =====
-       :nth-child(even) seleciona as linhas pares (2ª, 4ª, 6ª...).
-       Isso cria o efeito "zebrado" para facilitar a leitura. */
+
+    /* =====================================================
+       LINHAS PARES DA TABELA
+
+       Cria efeito zebrado para facilitar a leitura.
+    ===================================================== */
     tr:nth-child(even) {
-      background-color: #f5ede0; /* bege claro nas linhas pares */
+      background-color: #f5ede0;
     }
- 
-    /* ===== HOVER NAS LINHAS DA TABELA =====
-       Quando o usuário passa o mouse em uma linha, ela muda de cor. */
+
+    /* =====================================================
+       HOVER DAS LINHAS
+
+       Destaca a linha quando o mouse passa por cima.
+    ===================================================== */
     tr:hover {
-      background-color: #e8d5b7; /* bege mais escuro no hover */
+      background-color: #e8d5b7;
     }
- 
-    /* ===== RODAPÉ =====
-       O <footer> fica no final da página.
-       background-color: marrom escuro igual ao menu, criando consistência visual. */
+
+    /* =====================================================
+       FOOTER = RODAPÉ
+
+       Área final do site.
+
+       Mantém as mesmas cores do menu para criar
+       consistência visual.
+    ===================================================== */
     footer {
-      background-color: #4b2e1a; /* marrom escuro */
-      color: #fff8f0;             /* texto branco quente */
+      background-color: #4b2e1a;
+      color: #fff8f0;
       padding: 20px;
       margin-top: 40px;
       font-size: 14px;
     }
- 
+
   </style>
 </head>
 <body>
