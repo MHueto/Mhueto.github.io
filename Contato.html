@@ -7,169 +7,291 @@
   <link rel="icon" type="ico" href="favicon.ico">
  
   <style>
- 
-    /* ===== BASE DA PÁGINA =====
-       Mesmas cores da página principal para manter a identidade visual.
-       background-color: bege claro como fundo geral. */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f5ede0; /* bege claro — igual à página principal */
-      color: #3b1f0e;            /* marrom escuro para o texto */
-    }
- 
-    /* ===== MENU DE NAVEGAÇÃO =====
-       Copiado da página principal para manter consistência.
-       position: sticky faz o menu grudar no topo ao rolar. */
-    nav {
-      background-color: #4b2e1a; /* marrom escuro */
-      padding: 14px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
- 
-    /* ===== LINKS DO MENU ===== */
-    nav a {
-      color: #fff8f0;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
-      font-size: 15px;
-    }
- 
-    /* Muda a cor do link ao passar o mouse */
-    nav a:hover {
-      color: #d4a96a; /* bege dourado */
-    }
- 
-    /* ===== LAYOUT DAS SEÇÕES =====
-       As duas seções ficam lado a lado usando flexbox.
-       flex-wrap: wrap permite que elas empilhem em telas menores. */
-    .pagina {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 30px;         /* espaço entre as seções */
-      padding: 40px 20px;
-    }
- 
-    /* ===== SEÇÕES =====
-       Mesmo estilo da página principal: fundo branco, bordas arredondadas e sombra. */
-    section {
-      background-color: #fffaf5; /* branco levemente bege */
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12); /* sombra marrom suave */
-    }
- 
-    /* ===== SUBTÍTULOS (h2) =====
-       Igual à página principal: linha decorativa embaixo do título. */
-    h2 {
-      color: #6b3a1f;                      /* marrom médio */
-      border-bottom: 2px solid #d4a96a;    /* linha bege dourada */
-      padding-bottom: 8px;
-      display: inline-block;
-      margin-top: 0;
-    }
- 
-    /* ===== MAPA =====
-       border-radius arredonda os cantos do iframe do mapa. */
-    iframe {
-      border-radius: 10px;
-      display: block;    /* remove espaço extra embaixo do iframe */
-    }
- 
-    /* ===== SEÇÃO DE CONTATO =====
-       text-align: center centraliza o conteúdo do formulário. */
-    #contato {
-      text-align: center;
-      min-width: 280px;
-    }
- 
-    /* ===== TABELA DO FORMULÁRIO =====
-       Usamos uma tabela invisível para alinhar os rótulos e campos.
-       Isso deixa o formulário mais organizado e fácil de ler. */
-    .form-tabela {
-      margin: 0 auto;
-      text-align: left;
-      border-collapse: collapse;
-    }
- 
-    /* Cada linha da tabela tem um espaçamento vertical */
-    .form-tabela tr {
-      margin-bottom: 10px;
-    }
- 
-    /* Célula do rótulo (ex: "Nome:", "Email:") */
-    .form-tabela td:first-child {
-      padding: 8px 12px 8px 0;
-      font-weight: bold;
-      color: #4b2e1a;   /* marrom escuro */
-      white-space: nowrap;
-    }
- 
-    /* ===== CAMPOS DE INPUT =====
-       Estilo dos campos de texto, email, senha etc.
-       border: borda bege dourada combinando com o tema.
-       border-radius: arredonda os cantos do campo.
-       outline: none remove o contorno azul padrão do navegador. */
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    input[type="password"],
-    input[type="date"] {
-      padding: 8px 12px;
-      border: 1px solid #c9a07a;  /* borda bege dourada */
-      border-radius: 8px;
-      font-size: 14px;
-      background-color: #fff8f0;  /* fundo branco quente */
-      color: #3b1f0e;
-      width: 200px;
-      outline: none;
-    }
- 
-    /* Efeito ao clicar no campo: borda marrom mais escura */
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="number"]:focus,
-    input[type="password"]:focus,
-    input[type="date"]:focus {
-      border-color: #8b4513; /* marrom mais escuro no foco */
-    }
- 
-    /* ===== BOTÃO ENVIAR =====
-       background-color: marrom escuro igual ao menu e rodapé.
-       cursor: pointer mostra a "mãozinha" ao passar o mouse. */
-    input[type="submit"] {
-      margin-top: 16px;
-      padding: 10px 28px;
-      background-color: #4b2e1a; /* marrom escuro */
-      color: #fff8f0;             /* texto branco quente */
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
- 
-    /* Muda a cor do botão ao passar o mouse */
-    input[type="submit"]:hover {
-      background-color: #6b3a1f; /* marrom médio no hover */
-    }
- 
-    /* ===== RODAPÉ =====
-       Igual ao da página principal para manter consistência. */
-    footer {
-      background-color: #4b2e1a;
-      color: #fff8f0;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 10px;
-    }
+ /* =====================================================
+   BODY = CORPO PRINCIPAL DA PÁGINA
+
+   O body representa toda a área visível do site.
+
+   Aqui definimos:
+   - Fonte padrão utilizada em toda a página
+   - Cor de fundo principal
+   - Cor padrão dos textos
+   - Remoção das margens automáticas do navegador
+
+   Mantemos as mesmas cores da página inicial para
+   preservar a identidade visual da cafeteria.
+===================================================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5ede0;
+  color: #3b1f0e;
+}
+
+/* =====================================================
+   NAV = MENU DE NAVEGAÇÃO
+
+   Permite ao usuário navegar entre as páginas.
+
+   Foi mantido igual ao da página inicial para que
+   o usuário tenha uma experiência consistente.
+
+   position: sticky mantém o menu visível durante
+   a rolagem da página.
+===================================================== */
+nav {
+  background-color: #4b2e1a;
+  padding: 14px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* =====================================================
+   LINKS DO MENU
+
+   Estiliza os links de navegação.
+
+   text-decoration: none remove o sublinhado padrão.
+
+   font-weight: bold destaca visualmente os links.
+
+   margin cria espaçamento entre eles.
+===================================================== */
+nav a {
+  color: #fff8f0;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* =====================================================
+   HOVER DOS LINKS
+
+   Quando o usuário passa o mouse sobre um link,
+   sua cor muda para mostrar que é clicável.
+===================================================== */
+nav a:hover {
+  color: #d4a96a;
+}
+
+/* =====================================================
+   .PAGINA = CONTAINER PRINCIPAL
+
+   Utilizamos Flexbox para organizar os elementos.
+
+   display: flex coloca os elementos lado a lado.
+
+   flex-wrap permite que os elementos se reorganizem
+   em telas menores.
+
+   justify-content centraliza horizontalmente.
+
+   gap cria espaço entre as seções.
+===================================================== */
+.pagina {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* =====================================================
+   SECTION = BLOCOS DE CONTEÚDO
+
+   Cada section funciona como um cartão visual.
+
+   background-color destaca a seção do fundo.
+
+   border-radius arredonda os cantos.
+
+   box-shadow adiciona profundidade visual.
+===================================================== */
+section {
+  background-color: #fffaf5;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(75, 46, 26, 0.12);
+}
+
+/* =====================================================
+   H2 = TÍTULOS DAS SEÇÕES
+
+   Utilizado para destacar os títulos principais.
+
+   border-bottom cria uma linha decorativa.
+
+   display: inline-block faz a linha acompanhar
+   apenas o tamanho do texto.
+===================================================== */
+h2 {
+  color: #6b3a1f;
+  border-bottom: 2px solid #d4a96a;
+  padding-bottom: 8px;
+  display: inline-block;
+  margin-top: 0;
+}
+
+/* =====================================================
+   IFRAME = MAPA DO GOOGLE MAPS
+
+   Exibe a localização da cafeteria.
+
+   border-radius mantém o padrão visual do site.
+
+   display: block remove espaços indesejados
+   abaixo do mapa.
+===================================================== */
+iframe {
+  border-radius: 10px;
+  display: block;
+}
+
+/* =====================================================
+   SEÇÃO DE CONTATO
+
+   Centraliza visualmente o formulário.
+
+   min-width impede que a seção fique estreita
+   demais em telas menores.
+===================================================== */
+#contato {
+  text-align: center;
+  min-width: 280px;
+}
+
+/* =====================================================
+   TABELA DO FORMULÁRIO
+
+   Utilizada para alinhar rótulos e campos.
+
+   margin: auto centraliza a tabela.
+
+   border-collapse melhora a organização visual.
+===================================================== */
+.form-tabela {
+  margin: 0 auto;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+/* =====================================================
+   LINHAS DA TABELA
+
+   Organizam visualmente os campos do formulário.
+===================================================== */
+.form-tabela tr {
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   PRIMEIRA COLUNA DA TABELA
+
+   Contém os nomes dos campos:
+   Nome, Email, Idade etc.
+
+   font-weight: bold destaca os rótulos.
+===================================================== */
+.form-tabela td:first-child {
+  padding: 8px 12px 8px 0;
+  font-weight: bold;
+  color: #4b2e1a;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   CAMPOS DE ENTRADA
+
+   Estiliza os campos onde o usuário digita.
+
+   border combina com a identidade visual.
+
+   border-radius arredonda os cantos.
+
+   width define largura padronizada.
+
+   outline: none remove o contorno padrão
+   do navegador.
+===================================================== */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid #c9a07a;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff8f0;
+  color: #3b1f0e;
+  width: 200px;
+  outline: none;
+}
+
+/* =====================================================
+   FOCUS DOS CAMPOS
+
+   Quando o usuário seleciona um campo,
+   a borda muda de cor para indicar foco.
+===================================================== */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+  border-color: #8b4513;
+}
+
+/* =====================================================
+   BOTÃO ENVIAR
+
+   Possui destaque visual para chamar atenção.
+
+   cursor: pointer exibe a mãozinha ao passar
+   o mouse indicando que é clicável.
+===================================================== */
+input[type="submit"] {
+  margin-top: 16px;
+  padding: 10px 28px;
+  background-color: #4b2e1a;
+  color: #fff8f0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* =====================================================
+   HOVER DO BOTÃO
+
+   Muda a cor quando o mouse passa por cima,
+   melhorando a experiência do usuário.
+===================================================== */
+input[type="submit"]:hover {
+  background-color: #6b3a1f;
+}
+
+/* =====================================================
+   FOOTER = RODAPÉ
+
+   Área final da página.
+
+   Mantém as mesmas cores do menu para criar
+   consistência visual e identidade de marca.
+===================================================== */
+footer {
+  background-color: #4b2e1a;
+  color: #fff8f0;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
  
   </style>
 </head>
